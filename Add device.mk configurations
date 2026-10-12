@@ -1,0 +1,25 @@
+# ====================================================================
+# Crested Pigeons OS - Low-RAM & System Package Configuration
+# Hardware Target: Anbernic R35S (Rockchip RK3326)
+# ====================================================================
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true \
+    ro.lmk.kill_heaviest_task=true \
+    ro.config.max_starting_bg=2 \
+    config.disable_atlas_background=true \
+    persist.sys.force_highendgfx=false
+
+# Inherit baseline handheld and Android Go system properties
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_core_hardware.mk)
+
+# Core multimedia and utility packages to include in the system image
+PRODUCT_PACKAGES += \
+    Launcher3QuickStepGo \
+    RetroArch \
+    Chrome \
+    DocumentsUI \
+    CrestedPigeonsMusic \
+    CrestedPigeonsVideo \
+    CrestedPigeonsGallery
